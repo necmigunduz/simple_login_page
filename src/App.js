@@ -13,7 +13,7 @@ window.onload = function () {
 function App() {
   return (
     <div className="flex h-100vh">
-      <div className="w-10 bg-blue"></div>
+      <div className="w-10"></div>
       <div className="w-60 flex f-direction-column">
         <div className="top">
           <small className="text-right t-10 r-10">
