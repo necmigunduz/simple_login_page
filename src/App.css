@@ -6,7 +6,7 @@
   display: flex;
 }
 
-.f-direction-column{
+.f-direction-column {
   flex-direction: column;
 }
 
@@ -63,11 +63,11 @@
 }
 
 .bg-red {
-  background:red;
+  background: red;
 }
 
 .bg-blue {
-  background: #286EFA;
+  background: #286efa;
 }
 
 .text-white {
@@ -76,6 +76,11 @@
 
 .ls-2 {
   letter-spacing: 2px;
+}
+
+.radius {
+  border-radius: 5px;
+  border: 1px white solid;
 }
 
 .text-center {
@@ -114,7 +119,7 @@ div.input-block input {
   width: 100%;
   padding: 8px 12px;
   border: 1px solid #ecedf1;
-  outline:none;
+  outline: none;
 }
 
 div.input-block span.placeholder {
@@ -122,7 +127,7 @@ div.input-block span.placeholder {
   margin: 19px 0;
   padding: 0 4px;
   font-family: Roboto, sans-serif;
-  color:  #3f5569;
+  color: #3f5569;
   display: flex;
   align-items: center;
   font-size: 1rem;
@@ -159,7 +164,7 @@ button {
   width: 109%;
   height: 40px;
   color: white;
-  background: #286EFA;
+  background: #286efa;
   font-weight: bold;
 }
 
@@ -170,8 +175,16 @@ button {
 #togglePassword {
   margin-left: 330px;
   font-size: 15px;
-  color: #286EFA;
+  color: #286efa;
   cursor: pointer;
   position: relative;
   top: -25px;
+}
+
+.footnote {
+  font-size: 9px;
+  line-height: 20px;
+  font-weight: 500;
+  color: rgb(87, 82, 82);
+  word-spacing: 0.4px;
 }

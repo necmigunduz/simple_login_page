@@ -70,13 +70,13 @@ function App() {
               <i className="far fa-eye" id="togglePassword"></i>
             </div>
             <div className="input-block m-t-15">
-              <button>Next</button>
+              <button class="radius">Next</button>
             </div>
-            <small className="text-left m-t-15">
+            <p className="text-left m-t-15 footnote">
               By clicking the Next button, you agree to creating a free account,
               and to <a href="/#">Terms of Service</a> and{" "}
               <a href="/#">Privacy Policy</a>.
-            </small>
+            </p>
           </form>
         </div>
       </div>
