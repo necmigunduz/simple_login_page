@@ -25,8 +25,8 @@ function App() {
         </div>
         <div className="t-10 form-div">
           <form className="form m-auto m-t-25 text-center flex f-direction-column w-50 h-100">
-            <p className="text-left f-size-20 bold">Let's setup your account</p>
-            <small className="text-left m-t-15">
+            <p className="text-left f-size-25 fade-black bold">Let's setup your account</p>
+            <small className="text-left m-t-15 fade-black">
               Already have an account? <a href="/#">Sign in</a>
             </small>
             <div className="input-block m-t-25">

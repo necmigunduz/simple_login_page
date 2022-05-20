@@ -99,14 +99,17 @@
   border: 1px black solid;
 }
 
-.f-size-20 {
-  font-size: 20px;
+.f-size-25 {
+  font-size: 25px;
 }
 
 .bold {
   font-weight: bold;
 }
 
+.fade-black {
+  color: rgb(90, 86, 86);
+}
 /* Input shaper */
 div.input-block {
   position: relative;
