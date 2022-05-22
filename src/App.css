@@ -163,6 +163,7 @@ div.input-block input + span.placeholder {
   background: #fff;
 }
 
+/* Custom styles */
 button {
   width: 109%;
   height: 40px;
@@ -190,4 +191,20 @@ button {
   font-weight: 500;
   color: rgb(87, 82, 82);
   word-spacing: 0.4px;
+}
+
+/* Display error messages */
+.input-container[data-error] .input {
+  border-color: #e0939a;
+  color: #c92432;
+  background: #f7f1f1;
+}
+
+.input-container[data-error]::after {
+  content: attr(data-error);
+  font-size: 0.85em;
+  color: #c92432;
+  display: block;
+  margin: 10px 5px;
+  text-align: left;
 }

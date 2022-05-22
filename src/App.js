@@ -1,8 +1,9 @@
 import "./App.css";
 
+// Display and Hide Password Toggle Function
 window.onload = function () {
   const togglePassword = document.querySelector("#togglePassword");
-  const password = document.querySelector("#id_password");
+  const password = document.querySelector("#password");
   togglePassword.addEventListener("click", function (e) {
     const type = password.getAttribute("type") === "password" ? "text" : "password";
     password.setAttribute("type", type);
@@ -10,11 +11,22 @@ window.onload = function () {
   });
 };
 
+function handleChange(e){
+  e.preventDefault();
+  const el = document.getElementById('fullname');
+  if(e.target.value === ""){
+    el.classList.add('input-container')
+  } else {
+    el.classList.remove('input-container')  
+  }
+}
+
 function App() {
   return (
     <div className="flex h-100vh">
       <div className="w-10"></div>
       <div className="w-60 flex f-direction-column">
+        
         <div className="top">
           <small className="text-right t-10 r-10">
             Step 1 of 3{" "}
@@ -23,18 +35,26 @@ function App() {
             </span>
           </small>
         </div>
+
         <div className="t-10 form-div">
-          <form className="form m-auto m-t-25 text-center flex f-direction-column w-50 h-100">
+          <form 
+            className="form m-auto m-t-25 text-center flex f-direction-column w-50 h-100" 
+          >
             <p className="text-left f-size-25 fade-black bold">Let's setup your account</p>
             <small className="text-left m-t-15 fade-black">
               Already have an account? <a href="/#">Sign in</a>
             </small>
-            <div className="input-block m-t-25">
+            <div 
+              className="input-block m-t-25" 
+              data-error="Please make an name entry!" 
+              onInvalid={handleChange}
+              id="fullname"
+            >
               <input
                 type="text"
-                name="input-text"
-                id="input-text"
+                name="fullname"
                 spellCheck="false"
+                className="input"
                 required
               />
               <span className="placeholder">Your name</span>
@@ -42,8 +62,8 @@ function App() {
             <div className="input-block m-t-15">
               <input
                 type="email"
-                name="input-text"
-                id="input-text"
+                name="email"
+                id="email"
                 spellCheck="false"
                 required
               />
@@ -63,14 +83,15 @@ function App() {
                 type="password"
                 name="password"
                 autoComplete="current-password"
-                required=""
-                id="id_password"
+                id="password"
+                onInvalid={e => e.target.setCustomValidity('Enter minimum 8 digits')}
+                required
               />
               <span className="placeholder">Password</span>
               <i className="far fa-eye" id="togglePassword"></i>
             </div>
             <div className="input-block m-t-15">
-              <button class="radius">Next</button>
+              <button className="radius">Next</button>
             </div>
             <p className="text-left m-t-15 footnote">
               By clicking the Next button, you agree to creating a free account,
