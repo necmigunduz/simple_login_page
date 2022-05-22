@@ -24,10 +24,13 @@ function handleFullName(e){
 
   if(e.target.value === ""){
     nextBtn.classList.add('button-disabled')
+    nextBtn.classList.remove('next')
+    nextBtn.setAttribute('disabled','true')
   } else if(e.target.value !== ""){
     nextBtn.classList.remove('button-disabled')
     nextBtn.classList.add('next')
     nextBtn.removeAttribute('disabled')
+    console.log(e.target.value)
   }
 }
 
