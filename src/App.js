@@ -11,13 +11,23 @@ window.onload = function () {
   });
 };
 
-function handleChange(e){
+function handleFullName(e){
   e.preventDefault();
   const el = document.getElementById('fullname');
+  const nextBtn = document.getElementById('next');
+
   if(e.target.value === ""){
     el.classList.add('input-container')
   } else {
     el.classList.remove('input-container')  
+  }
+
+  if(e.target.value === ""){
+    nextBtn.classList.add('button-disabled')
+  } else if(e.target.value !== ""){
+    nextBtn.classList.remove('button-disabled')
+    nextBtn.classList.add('next')
+    nextBtn.removeAttribute('disabled')
   }
 }
 
@@ -47,7 +57,7 @@ function App() {
             <div 
               className="input-block m-t-25" 
               data-error="Please make an name entry!" 
-              onInvalid={handleChange}
+              onChange={handleFullName}
               id="fullname"
             >
               <input
@@ -55,7 +65,6 @@ function App() {
                 name="fullname"
                 spellCheck="false"
                 className="input"
-                required
               />
               <span className="placeholder">Your name</span>
             </div>
@@ -84,14 +93,14 @@ function App() {
                 name="password"
                 autoComplete="current-password"
                 id="password"
-                onInvalid={e => e.target.setCustomValidity('Enter minimum 8 digits')}
+                // onInvalid={e => e.target.setCustomValidity('Enter minimum 8 digits')}
                 required
               />
               <span className="placeholder">Password</span>
               <i className="far fa-eye" id="togglePassword"></i>
             </div>
             <div className="input-block m-t-15">
-              <button className="radius">Next</button>
+              <button className="radius button-disabled" id="next" disabled>Next</button>
             </div>
             <p className="text-left m-t-15 footnote">
               By clicking the Next button, you agree to creating a free account,

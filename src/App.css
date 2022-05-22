@@ -164,11 +164,20 @@ div.input-block input + span.placeholder {
 }
 
 /* Custom styles */
-button {
+.next {
   width: 109%;
   height: 40px;
   color: white;
   background: #286efa;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.button-disabled {
+  width: 109%;
+  height: 40px;
+  color: white;
+  background: #9da8be;
   font-weight: bold;
 }
 
