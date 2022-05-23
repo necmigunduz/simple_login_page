@@ -11,28 +11,28 @@ window.onload = function () {
   });
 };
 
-function handleFullName(e){
+function enableSubmit(e){
   e.preventDefault();
-  const el = document.getElementById('fullname');
   const nextBtn = document.getElementById('next');
-
-  if(e.target.value === ""){
-    el.classList.add('input-container')
-  } else {
-    el.classList.remove('input-container')  
+  const inputs = document.querySelectorAll('.input')
+  let isValid = true;
+  for (let i = 0; i < inputs.length; i+=1){
+    let changedInput = inputs[i];
+    if (changedInput.value.trim() === "" || changedInput.value === null){
+      isValid = false;
+      break;
+    }
   }
-
-  if(e.target.value === ""){
-    nextBtn.classList.add('button-disabled')
-    nextBtn.classList.remove('next')
-    nextBtn.setAttribute('disabled','true')
-  } else if(e.target.value !== ""){
-    nextBtn.classList.remove('button-disabled')
-    nextBtn.classList.add('next')
-    nextBtn.removeAttribute('disabled')
-    console.log(e.target.value)
+  nextBtn.disabled = !isValid;
+  if(isValid){
+    nextBtn.classList.remove('button-disabled');
+    nextBtn.classList.add('next');
+  } else {
+    nextBtn.classList.remove('next');
+    nextBtn.classList.add('button-disabled');
   }
 }
+
 
 function App() {
   return (
@@ -60,7 +60,7 @@ function App() {
             <div 
               className="input-block m-t-25" 
               data-error="Please make an name entry!" 
-              onChange={handleFullName}
+              onKeyUp={enableSubmit}
               id="fullname"
             >
               <input
@@ -75,9 +75,9 @@ function App() {
               <input
                 type="email"
                 name="email"
-                id="email"
+                className="input"
                 spellCheck="false"
-                required
+                onKeyUp={enableSubmit}
               />
               <span className="placeholder">Email adress</span>
             </div>
@@ -95,15 +95,15 @@ function App() {
                 type="password"
                 name="password"
                 autoComplete="current-password"
-                id="password"
+                className="input"
                 // onInvalid={e => e.target.setCustomValidity('Enter minimum 8 digits')}
-                required
+                onKeyUp={enableSubmit}
               />
               <span className="placeholder">Password</span>
               <i className="far fa-eye" id="togglePassword"></i>
             </div>
             <div className="input-block m-t-15">
-              <button className="radius button-disabled" id="next" disabled>Next</button>
+              <button className="radius button-disabled" id="next">Next</button>
             </div>
             <p className="text-left m-t-15 footnote">
               By clicking the Next button, you agree to creating a free account,
