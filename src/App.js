@@ -23,6 +23,7 @@ function enableSubmit(e){
       break;
     }
   }
+  console.log(isValid)
   nextBtn.disabled = !isValid;
   if(isValid){
     nextBtn.classList.remove('button-disabled');
@@ -31,10 +32,6 @@ function enableSubmit(e){
     nextBtn.classList.remove('next');
     nextBtn.classList.add('button-disabled');
   }
-}
-function handleEmail(e){
-  e.preventDefault();
-  console.log(e.target.value)
 }
 
 function App() {
@@ -81,7 +78,6 @@ function App() {
                 className="input"
                 spellCheck="false"
                 onKeyUp={enableSubmit}
-                onChange={handleEmail}
               />
               <span className="placeholder">Email adress</span>
             </div>
@@ -101,6 +97,7 @@ function App() {
                 autoComplete="current-password"
                 id="password"
                 className="input"
+                onKeyUp={enableSubmit}
               />
               <span className="placeholder">Password</span>
               <i className="far fa-eye" id="togglePassword"></i>
