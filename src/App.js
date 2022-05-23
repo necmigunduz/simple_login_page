@@ -23,7 +23,6 @@ function enableSubmit(e){
       break;
     }
   }
-  console.log(isValid)
   nextBtn.disabled = !isValid;
   if(isValid){
     nextBtn.classList.remove('button-disabled');
@@ -31,6 +30,22 @@ function enableSubmit(e){
   } else {
     nextBtn.classList.remove('next');
     nextBtn.classList.add('button-disabled');
+  }
+};
+
+function validateEmail(email) {
+  return email.match(
+    /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
+  );
+};
+function handleEmail(e){
+  e.preventDefault();
+  const el = document.getElementById('email');
+  console.log(e.target.value)
+  if(!validateEmail(e.target.value)){
+    el.classList.add('input-container')
+  } else {
+    el.classList.remove('input-container')  
   }
 }
 
@@ -59,7 +74,6 @@ function App() {
             </small>
             <div 
               className="input-block m-t-25" 
-              data-error="Please make an name entry!" 
               onKeyUp={enableSubmit}
               id="fullname"
             >
@@ -71,7 +85,12 @@ function App() {
               />
               <span className="placeholder">Your name</span>
             </div>
-            <div className="input-block m-t-15">
+            <div 
+              className="input-block m-t-15 input-container" 
+              id="email"
+              data-error="Please enter a valid email!"
+              onKeyUp={handleEmail} 
+            >
               <input
                 type="email"
                 name="email"
