@@ -35,9 +35,10 @@ function enableSubmit(e){
 
 function validateEmail(email) {
   return email.match(
-    /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
+    /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
   );
 };
+
 function handleEmail(e){
   e.preventDefault();
   const el = document.getElementById('email');
@@ -48,6 +49,23 @@ function handleEmail(e){
     el.classList.remove('input-container')  
   }
 }
+
+function validatePassword(password){
+  return password.match(
+    /^(?=.*[0-9])(?=.*[!@#$%^&*])[a-zA-Z0-9!@#$%^&*]{6,16}$/
+  )
+};
+
+function handlePassword(e){
+  e.preventDefault();
+  const el = document.getElementById('password');
+  if(!validatePassword(e.target.value)){
+    el.classList.add('input-container')
+  } else {
+    el.classList.remove('input-container')  
+  }
+}
+
 
 function App() {
   return (
@@ -109,12 +127,16 @@ function App() {
                 <option value="recruiter">Recruiter</option>
               </select>
             </div>
-            <div className="input-block m-t-15">
+            <div 
+              className="input-block m-t-15"
+              id="password"
+              data-error="Please enter a valid password!"
+              onKeyUp={handlePassword} 
+            >
               <input
                 type="password"
                 name="password"
                 autoComplete="current-password"
-                id="password"
                 className="input"
                 onKeyUp={enableSubmit}
               />
