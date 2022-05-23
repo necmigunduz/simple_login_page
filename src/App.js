@@ -58,7 +58,7 @@ function validatePassword(password){
 
 function handlePassword(e){
   e.preventDefault();
-  const el = document.getElementById('password');
+  const el = document.getElementById('password-div');
   if(!validatePassword(e.target.value)){
     el.classList.add('input-container')
   } else {
@@ -129,7 +129,7 @@ function App() {
             </div>
             <div 
               className="input-block m-t-15"
-              id="password"
+              id="password-div"
               data-error="Please enter a valid password!"
               onKeyUp={handlePassword} 
             >
@@ -138,6 +138,7 @@ function App() {
                 name="password"
                 autoComplete="current-password"
                 className="input"
+                id="password"
                 onKeyUp={enableSubmit}
               />
               <span className="placeholder">Password</span>
@@ -154,7 +155,7 @@ function App() {
           </form>
         </div>
       </div>
-      <div className="bg-blue w-30"></div>
+      <div className="bg-blue w-30 h-120"></div>
     </div>
   );
 }
