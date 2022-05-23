@@ -32,7 +32,10 @@ function enableSubmit(e){
     nextBtn.classList.add('button-disabled');
   }
 }
-
+function handleEmail(e){
+  e.preventDefault();
+  console.log(e.target.value)
+}
 
 function App() {
   return (
@@ -78,6 +81,7 @@ function App() {
                 className="input"
                 spellCheck="false"
                 onKeyUp={enableSubmit}
+                onChange={handleEmail}
               />
               <span className="placeholder">Email adress</span>
             </div>
@@ -97,8 +101,6 @@ function App() {
                 autoComplete="current-password"
                 id="password"
                 className="input"
-                onInvalid={e => e.target.setCustomValidity('Enter minimum 8 digits')}
-                required
               />
               <span className="placeholder">Password</span>
               <i className="far fa-eye" id="togglePassword"></i>
