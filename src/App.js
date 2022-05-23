@@ -95,9 +95,10 @@ function App() {
                 type="password"
                 name="password"
                 autoComplete="current-password"
+                id="password"
                 className="input"
-                // onInvalid={e => e.target.setCustomValidity('Enter minimum 8 digits')}
-                onKeyUp={enableSubmit}
+                onInvalid={e => e.target.setCustomValidity('Enter minimum 8 digits')}
+                required
               />
               <span className="placeholder">Password</span>
               <i className="far fa-eye" id="togglePassword"></i>
