@@ -49,12 +49,10 @@ function App() {
       } else {
         el.classList.remove("input-container");
       }
-    }, 3000);
+    }, 1500);
   }
   function validatePassword(password) {
-    return password.match(
-      /^(?=.*[0-9])(?=.*[!@#$%^&*])[a-zA-Z0-9!@#$%^&*]{6,16}$/
-    );
+    return password.length >= 8
   }
   function handlePassword(e) {
     e.preventDefault();
@@ -65,7 +63,7 @@ function App() {
       } else {
         el.classList.remove("input-container");
       }
-    }, 3000);
+    }, 1500);
   }
 
   useEffect(() => {
@@ -143,19 +141,13 @@ function App() {
                 className="input"
                 id="password"
                 onKeyUp={enableSubmit}
+                min={8}
               />
-              <span className="placeholder">Password</span>
+              <span className="placeholder">Password*</span>
               <i className="far fa-eye" id="togglePassword"></i>
             </div>
-            <ul>
-              <li>Password requires minimum six characters.</li>
-              <li>At least one capital letter has to be included.</li>
-              <li>
-                At least one of the following characters has to be included:
-                "!^%&"
-              </li>
-              <li>At least one number has to be included.</li>
-            </ul>
+            <span className="f-size-10 roboto text-left">* Password requires minimum eight characters.</span>
+            
             <div className="input-block m-t-15">
               <button className="radius button-disabled" id="next">
                 Next
