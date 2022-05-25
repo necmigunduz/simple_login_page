@@ -2,7 +2,7 @@
 
 This is a simple React form with validations and style.
 
-![screenshot](https://github.com/necmigunduz/react-tic-tac-toe/blob/master/assets/screenshot.png)
+![screenshot](https://github.com/necmigunduz/simple_login_page/blob/master/screenshot.png)
 
 ## Built With
 
