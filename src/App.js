@@ -158,7 +158,10 @@ function App() {
           </form>
         </div>
       </div>
-      <div className="bg-blue w-30 h-120"></div>
+      <div className="bg-blue w-30 h-120">
+        <h2 className="text-center m-auto m-t-40p f-size-header text-white letter-space">Dummy Heading</h2>
+        <p className="side-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+      </div>
     </div>
   );
 }

@@ -22,6 +22,9 @@
   margin-top: 15px;
 }
 
+.m-t-40p {
+  margin-top: 40%;
+}
 .h-100vh {
   height: 100vh;
 }
@@ -47,7 +50,7 @@
 }
 
 .w-30 {
-  width: 40%;
+  width: 37%;
 }
 
 .w-100 {
@@ -106,6 +109,14 @@
   font-size: 25px;
 }
 
+.f-size-header {
+  font-size: 1.65em;
+}
+
+.letter-space {
+  font-weight: 560;
+}
+
 .bold {
   font-weight: bold;
 }
@@ -118,10 +129,15 @@ ul {
   margin-left: -20px;
   margin-top: -10px;
 }
+
 li {
   font-size: 9px;
   text-align: left;
   width: 100%;
+}
+
+.roboto {
+  font-family: Roboto, sans-serif;
 }
 /* Input shaper */
 div.input-block {
@@ -213,6 +229,15 @@ div.input-block input + span.placeholder {
   font-weight: 500;
   color: rgb(87, 82, 82);
   word-spacing: 0.4px;
+}
+
+.side-text {
+  padding: 47px 110px;
+  color: rgb(245, 238, 238);
+  line-height: 23px;
+  font-family: Roboto, sans-serif;
+  font-weight: 300;
+  font-size: 1em;
 }
 
 /* Display error messages */
