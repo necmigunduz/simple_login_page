@@ -68,7 +68,7 @@ function App() {
 
   useEffect(() => {
     clearTimeout(delayHandler);
-  }, []);
+  }, [delayHandler]);
 
   return (
     <div className="flex h-100vh">

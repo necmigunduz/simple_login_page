@@ -2,6 +2,8 @@
 
 This is a simple React form with validations and style.
 
+![screenshot](https://github.com/necmigunduz/react-tic-tac-toe/blob/master/assets/screenshot.png)
+
 ## Built With
 
 - Javascript,
