@@ -33,12 +33,12 @@ function App() {
       nextBtn.classList.remove("next");
       nextBtn.classList.add("button-disabled");
     }
-  };
+  }
   function validateEmail(email) {
     return email.match(
       /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
     );
-  };
+  }
   let delayHandler;
   function handleEmail(e) {
     e.preventDefault();
@@ -49,13 +49,13 @@ function App() {
       } else {
         el.classList.remove("input-container");
       }
-    }, 1000);
-  };
+    }, 3000);
+  }
   function validatePassword(password) {
     return password.match(
       /^(?=.*[0-9])(?=.*[!@#$%^&*])[a-zA-Z0-9!@#$%^&*]{6,16}$/
     );
-  };
+  }
   function handlePassword(e) {
     e.preventDefault();
     delayHandler = setTimeout(() => {
@@ -65,7 +65,7 @@ function App() {
       } else {
         el.classList.remove("input-container");
       }
-    }, 1000);
+    }, 3000);
   }
 
   useEffect(() => {
