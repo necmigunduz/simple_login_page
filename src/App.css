@@ -127,13 +127,13 @@
 
 ul {
   margin-left: -20px;
-  margin-top: -10px;
 }
 
 li {
   font-size: 9px;
   text-align: left;
   width: 100%;
+  padding: 1px;
 }
 
 .roboto {

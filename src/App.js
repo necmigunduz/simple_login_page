@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import "./App.css";
 
 function App() {
@@ -23,7 +24,7 @@ function App() {
         isValid = false;
         break;
       }
-    };
+    }
     nextBtn.disabled = !isValid;
     if (isValid) {
       nextBtn.classList.remove("button-disabled");
@@ -38,14 +39,17 @@ function App() {
       /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
     );
   };
+  let delayHandler;
   function handleEmail(e) {
     e.preventDefault();
-    const el = document.getElementById("email");
-    if (!validateEmail(e.target.value)) {
-      el.classList.add("input-container");
-    } else {
-      el.classList.remove("input-container");
-    }
+    delayHandler = setTimeout(() => {
+      const el = document.getElementById("email");
+      if (!validateEmail(e.target.value)) {
+        el.classList.add("input-container");
+      } else {
+        el.classList.remove("input-container");
+      }
+    }, 1000);
   };
   function validatePassword(password) {
     return password.match(
@@ -54,13 +58,20 @@ function App() {
   };
   function handlePassword(e) {
     e.preventDefault();
-    const el = document.getElementById("password-div");
-    if (!validatePassword(e.target.value)) {
-      el.classList.add("input-container");
-    } else {
-      el.classList.remove("input-container");
-    }
-  };
+    delayHandler = setTimeout(() => {
+      const el = document.getElementById("password-div");
+      if (!validatePassword(e.target.value)) {
+        el.classList.add("input-container");
+      } else {
+        el.classList.remove("input-container");
+      }
+    }, 1000);
+  }
+
+  useEffect(() => {
+    clearTimeout(delayHandler);
+  }, []);
+
   return (
     <div className="flex h-100vh">
       <div className="w-10"></div>
@@ -96,7 +107,7 @@ function App() {
               <span className="placeholder">Your name</span>
             </div>
             <div
-              className="input-block m-t-15 input-container"
+              className="input-block m-t-15"
               id="email"
               data-error="Please enter a valid email!"
               onKeyUp={handleEmail}
@@ -159,8 +170,13 @@ function App() {
         </div>
       </div>
       <div className="bg-blue w-30 h-120">
-        <h2 className="text-center m-auto m-t-40p f-size-header text-white letter-space">Dummy Heading</h2>
-        <p className="side-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+        <h2 className="text-center m-auto m-t-40p f-size-header text-white letter-space">
+          Dummy Heading
+        </h2>
+        <p className="side-text">
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+          eiusmod tempor incididunt ut labore et dolore magna aliqua.
+        </p>
       </div>
     </div>
   );
