@@ -113,6 +113,16 @@
 .fade-black {
   color: rgb(90, 86, 86);
 }
+
+ul {
+  margin-left: -20px;
+  margin-top: -10px;
+}
+li {
+  font-size: 9px;
+  text-align: left;
+  width: 100%;
+}
 /* Input shaper */
 div.input-block {
   position: relative;

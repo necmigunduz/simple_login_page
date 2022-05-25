@@ -1,78 +1,70 @@
 import "./App.css";
 
-// Display and Hide Password Toggle Function
-window.onload = function () {
-  const togglePassword = document.querySelector("#togglePassword");
-  const password = document.querySelector("#password");
-  togglePassword.addEventListener("click", function (e) {
-    const type = password.getAttribute("type") === "password" ? "text" : "password";
-    password.setAttribute("type", type);
-    this.classList.toggle("fa-eye-slash");
-  });
-};
-
-function enableSubmit(e){
-  e.preventDefault();
-  const nextBtn = document.getElementById('next');
-  const inputs = document.querySelectorAll('.input')
-  let isValid = true;
-  for (let i = 0; i < inputs.length; i+=1){
-    let changedInput = inputs[i];
-    if (changedInput.value.trim() === "" || changedInput.value === null){
-      isValid = false;
-      break;
-    }
-  }
-  nextBtn.disabled = !isValid;
-  if(isValid){
-    nextBtn.classList.remove('button-disabled');
-    nextBtn.classList.add('next');
-  } else {
-    nextBtn.classList.remove('next');
-    nextBtn.classList.add('button-disabled');
-  }
-};
-
-function validateEmail(email) {
-  return email.match(
-    /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
-  );
-};
-
-function handleEmail(e){
-  e.preventDefault();
-  const el = document.getElementById('email');
-  console.log(e.target.value)
-  if(!validateEmail(e.target.value)){
-    el.classList.add('input-container')
-  } else {
-    el.classList.remove('input-container')  
-  }
-}
-
-function validatePassword(password){
-  return password.match(
-    /^(?=.*[0-9])(?=.*[!@#$%^&*])[a-zA-Z0-9!@#$%^&*]{6,16}$/
-  )
-};
-
-function handlePassword(e){
-  e.preventDefault();
-  const el = document.getElementById('password-div');
-  if(!validatePassword(e.target.value)){
-    el.classList.add('input-container')
-  } else {
-    el.classList.remove('input-container')  
-  }
-}
-
-
 function App() {
+  // Display and Hide Password Toggle Function
+  window.onload = function () {
+    const togglePassword = document.querySelector("#togglePassword");
+    const password = document.querySelector("#password");
+    togglePassword.addEventListener("click", function (e) {
+      const type =
+        password.getAttribute("type") === "password" ? "text" : "password";
+      password.setAttribute("type", type);
+      this.classList.toggle("fa-eye-slash");
+    });
+  };
+  function enableSubmit(e) {
+    e.preventDefault();
+    const nextBtn = document.getElementById("next");
+    const inputs = document.querySelectorAll(".input");
+    let isValid = true;
+    for (let i = 0; i < inputs.length; i += 1) {
+      let changedInput = inputs[i];
+      if (changedInput.value.trim() === "" || changedInput.value === null) {
+        isValid = false;
+        break;
+      }
+    };
+    nextBtn.disabled = !isValid;
+    if (isValid) {
+      nextBtn.classList.remove("button-disabled");
+      nextBtn.classList.add("next");
+    } else {
+      nextBtn.classList.remove("next");
+      nextBtn.classList.add("button-disabled");
+    }
+  };
+  function validateEmail(email) {
+    return email.match(
+      /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
+    );
+  };
+  function handleEmail(e) {
+    e.preventDefault();
+    const el = document.getElementById("email");
+    if (!validateEmail(e.target.value)) {
+      el.classList.add("input-container");
+    } else {
+      el.classList.remove("input-container");
+    }
+  };
+  function validatePassword(password) {
+    return password.match(
+      /^(?=.*[0-9])(?=.*[!@#$%^&*])[a-zA-Z0-9!@#$%^&*]{6,16}$/
+    );
+  };
+  function handlePassword(e) {
+    e.preventDefault();
+    const el = document.getElementById("password-div");
+    if (!validatePassword(e.target.value)) {
+      el.classList.add("input-container");
+    } else {
+      el.classList.remove("input-container");
+    }
+  };
   return (
     <div className="flex h-100vh">
       <div className="w-10"></div>
       <div className="w-60 flex f-direction-column">
-        
         <div className="top">
           <small className="text-right t-10 r-10">
             Step 1 of 3{" "}
@@ -83,15 +75,15 @@ function App() {
         </div>
 
         <div className="t-10 form-div">
-          <form 
-            className="form m-auto m-t-25 text-center flex f-direction-column w-50 h-100" 
-          >
-            <p className="text-left f-size-25 fade-black bold">Let's setup your account</p>
+          <form className="form m-auto m-t-25 text-center flex f-direction-column w-50 h-100">
+            <p className="text-left f-size-25 fade-black bold">
+              Let's setup your account
+            </p>
             <small className="text-left m-t-15 fade-black">
               Already have an account? <a href="/#">Sign in</a>
             </small>
-            <div 
-              className="input-block m-t-25" 
+            <div
+              className="input-block m-t-25"
               onKeyUp={enableSubmit}
               id="fullname"
             >
@@ -103,11 +95,11 @@ function App() {
               />
               <span className="placeholder">Your name</span>
             </div>
-            <div 
-              className="input-block m-t-15 input-container" 
+            <div
+              className="input-block m-t-15 input-container"
               id="email"
               data-error="Please enter a valid email!"
-              onKeyUp={handleEmail} 
+              onKeyUp={handleEmail}
             >
               <input
                 type="email"
@@ -127,11 +119,11 @@ function App() {
                 <option value="recruiter">Recruiter</option>
               </select>
             </div>
-            <div 
+            <div
               className="input-block m-t-15"
               id="password-div"
               data-error="Please enter a valid password!"
-              onKeyUp={handlePassword} 
+              onKeyUp={handlePassword}
             >
               <input
                 type="password"
@@ -144,8 +136,19 @@ function App() {
               <span className="placeholder">Password</span>
               <i className="far fa-eye" id="togglePassword"></i>
             </div>
+            <ul>
+              <li>Password requires minimum six characters.</li>
+              <li>At least one capital letter has to be included.</li>
+              <li>
+                At least one of the following characters has to be included:
+                "!^%&"
+              </li>
+              <li>At least one number has to be included.</li>
+            </ul>
             <div className="input-block m-t-15">
-              <button className="radius button-disabled" id="next">Next</button>
+              <button className="radius button-disabled" id="next">
+                Next
+              </button>
             </div>
             <p className="text-left m-t-15 footnote">
               By clicking the Next button, you agree to creating a free account,
